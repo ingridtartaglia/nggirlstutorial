@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'todo-input',
   template: `
     <input [value]="title"
-           (keyup.enter)="changeTitle(inputElement)"
+           (keyup.enter)="submitValue(inputElement)"
            #inputElement>
-    <button (click)="changeTitle(inputElement)">
+    <button (click)="submitValue(inputElement)">
       Save
     </button>
     <p>The title is: {{ title }}</p>
@@ -14,13 +14,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
+  @Output() submit: EventEmitter<string> = new EventEmitter();
+
   title = '';
 
   constructor() {
   }
 
-  changeTitle(inputElementReference): void {
-    this.title = inputElementReference.value;
+  submitValue(inputElementReference: any): void {
+    this.submit.emit(inputElementReference.value);
   }
 
   ngOnInit() {
