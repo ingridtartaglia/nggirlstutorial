@@ -14,8 +14,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
-  // I commented the line below because of tslint warning: "Type string trivially inferred from a string literal, remove type annotation"
-  // title: string = '';
   title = '';
 
   constructor() {
