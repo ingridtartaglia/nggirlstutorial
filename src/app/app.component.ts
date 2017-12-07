@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     <todo-input></todo-input>
     <ul>
       <li *ngFor="let item of todoList">
-        {{item.title}}
+        <todo-item [todoItem]="item"></todo-item>
       </li>
     </ul>
   `,
