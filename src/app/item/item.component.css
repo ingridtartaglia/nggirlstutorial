@@ -1,4 +1,4 @@
-/* .todo-item {
+.todo-item {
   padding: 10px 0;
   border-top: solid 1px #ddd;
   min-height: 30px;
@@ -23,7 +23,7 @@
 
 .btn-red:hover {
   background: darkred;
-} */
+}
 
 .todo-complete {
   text-decoration: line-through;
