@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoListService } from '../todo-list.service';
 
 @Component({
   selector: 'todo-list-manager',
@@ -16,22 +17,16 @@ import { Component, OnInit } from '@angular/core';
 export class ListManagerComponent implements OnInit {
   userLoggedIn = true;
   title = 'todo';
-  todoList = [
-    { title: 'install NodeJS' },
-    { title: 'install Angular CLI' },
-    { title: 'create new app' },
-    { title: 'serve app' },
-    { title: 'develop app' },
-    { title: 'deploy app' },
-  ];
+  todoList;
 
-  addItem(title: string): void {
-    this.todoList.push({ title });
+  constructor(private todoListService: TodoListService) { }
+
+  addItem(item): void {
+    this.todoListService.addItem(item);
   }
 
-  constructor() { }
-
   ngOnInit() {
+    this.todoList = this.todoListService.getTodoList()
   }
 
 }
