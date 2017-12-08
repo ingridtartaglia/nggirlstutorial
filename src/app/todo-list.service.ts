@@ -10,7 +10,7 @@ export class TodoListService {
   }
 
   addItem(item) {
-    this.storage.post(item);
+    return this.storage.post(item);
   }
 
   removeItem(item) {
